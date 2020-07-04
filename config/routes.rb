@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cart_items/index'
   devise_for :customers
   devise_for :admins
   namespace :admins do
