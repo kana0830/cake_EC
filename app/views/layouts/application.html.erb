@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NaganoCake</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <!--ヘッダーの記述-->
+    <header class="navbar navbar-fixed-top navbar-inverse" style="background:#E95464;">
+      <div class="container-fluid">
+
+        <!-- ヘッダー左 -->
+        <nav class="bar-left">
+          <%= link_to 'NaganoCake' %>
+        </nav>
+
+
+        <!-- ヘッダー中 -->
+        <nav class="bar-center">
+          <p>ようこそ、xxxさん</p>
+        </nav>
+
+
+        <!-- ヘッダー右 -->
+        <!-- CTM:マイページ商品一覧カート新規登録ログインログアウト ADM: 商品一覧会員一覧注文履歴一覧ジャンル一覧ログインログアウト検索 -->
+
+        <nav class="bar-right">
+          <ul style="margin:0; padding: 0">
+            <li><%= link_to 'マイページ' %></li>
+            <li><%= link_to '商品一覧', items_path %></li>
+            <li><%= link_to 'カート' %></li>
+            <li><%= link_to '新規登録' %></li>
+            <li><%= link_to 'ログイン' %></li>
+            <li><%= link_to 'ログアウト' %></li>
+          </ul>
+        </nav>
+
+<!------------------※一時的に表示（admin）------------------>
+        <nav class="bar-right">
+          <ul style="margin:0; padding: 0">
+            <li><%= link_to '商品一覧', admins_items_path %></li>
+            <li><%= link_to '会員一覧', admins_customers_path %></li>
+            <li><%= link_to '注文履歴一覧' %></li>
+            <li><%= link_to 'ジャンル一覧', admins_item_genres_path %></li>
+            <li><%= link_to 'ログアウト' %></li>
+          </ul>
+        </nav>
+
+      </div>
+    </header>
+
+      <%= yield %>
+
+  </body>
+</html>

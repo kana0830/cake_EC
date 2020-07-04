@@ -1,0 +1,63 @@
+<!-- 訳あってindexとshowを取り替えました -->
+
+<div class="container" style="margin-top:20px;">
+<div class="row">
+
+	<nav class="col-lg-2" style="background-color: #f0f8ff;">
+		<table>
+			<thead>
+				<tr>
+					<th>ジャンル検索</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>ケーキ</td>
+				</tr>
+				<tr>
+					<td>焼き菓子</td>
+				</tr>
+				<tr>
+					<td>プリン</td>
+				</tr>
+				<tr>
+					<td>キャンディ</td>
+				</tr>
+			</tbody>
+		</table>
+	</nav>
+
+
+	<main class="col-lg-10" style="background-color: #fffafa">
+		<div class="row">
+			<div class="col">
+				<%= attachment_image_tag @item, :image, format: 'jpeg', size: "300x200", fallback: "no_image.jpg" %>
+			</div>
+			<div class="col">
+				<%= @item.name %>
+				<%= @item.description %>
+				<%= @item.price %>
+				<% form_for @item do |f|%>
+					<%= f.select :count, [[1, 1], [2, 2], [3, 3]], include_blank: '個数選択', selected: '個数選択' %>
+					<%= f.submit "カートに入れる" %>
+				<% end %>
+				<div class="btn-group">
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+					個数選択
+					<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li>1</li>
+						<li>1</li>
+						<li>1</li>
+					</ul>
+				</div>
+
+				<div class="btn btn-primary">カートに入れる</div>
+			</div>
+		</div>
+	</main>
+
+</div>		<!-- rowの閉じタグ -->
+</div>		<!-- containerの閉じタグ -->
+
